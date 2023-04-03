@@ -18,10 +18,10 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'role_id',
-        'image',
         'email',
-        'password',
+        'password', 'name', 'place_of_birth', 'date_of_birth',
+        'gender', 'phone', 'address',
+        'image'
     ];
 
     /**
@@ -42,24 +42,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function admin()
-    {
-        return $this->hasOne(Admin::class, 'user_id', 'id');
-    }
-
-    public function manager()
-    {
-        return $this->hasOne(Manager::class, 'user_id', 'id');
-    }
-
-    public function community()
-    {
-        return $this->hasOne(Community::class, 'user_id', 'id');
-    }
-
-    public function role()
-    {
-        return $this->hasOne(Role::class, 'id', 'role_id');
-    }
 }

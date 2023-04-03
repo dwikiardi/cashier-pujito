@@ -46,7 +46,7 @@
         <!-- ============================================================== -->
         <!-- End Logo -->
         <!-- ============================================================== -->
-        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin2">
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
             <!-- ============================================================== -->

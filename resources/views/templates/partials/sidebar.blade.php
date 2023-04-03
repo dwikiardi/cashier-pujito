@@ -13,24 +13,6 @@
                 <a href="#" class="dropdown-toggle u-dropdown w-100 text-white d-block position-relative "
                     id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">{{username()}}</a>
                 <div class="dropdown-menu animated flipInY" aria-labelledby="dropdownMenuLink">
-                    {{-- <a class="dropdown-item" href="#"><i data-feather="user"
-                            class="feather-sm text-info me-1 ms-1"></i>
-                        My Profile</a>
-                    <a class="dropdown-item" href="#"><i data-feather="credit-card"
-                            class="feather-sm text-info me-1 ms-1"></i>
-                        My Balance</a>
-                    <a class="dropdown-item" href="#"><i data-feather="mail"
-                            class="feather-sm text-success me-1 ms-1"></i>
-                        Inbox</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i data-feather="settings"
-                            class="feather-sm text-warning me-1 ms-1"></i>
-                        Account Setting</a>
-                    <div class="dropdown-divider"></div> --}}
-                    {{-- <a class="dropdown-item"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/html/material/authentication-login3.html"><i
-                            data-feather="log-out" class="feather-sm text-danger me-1 ms-1"></i>
-                        Logout</a> --}}
                     <a class="dropdown-item" href="{{route('logout')}}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                             data-feather="log-out" class="feather-sm text-danger me-1 ms-1"></i>{{ __('Logout')
@@ -38,10 +20,6 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                    {{-- <div class="dropdown-divider"></div> --}}
-                    {{-- <div class="ps-4 p-2">
-                        <a href="#" class="btn d-block w-100 btn-info rounded-pill">View Profile</a>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -53,34 +31,26 @@
                     <i class="mdi mdi-dots-horizontal"></i>
                     <span class="hide-menu">Menu</span>
                 </li>
-                <li class="sidebar-item {{Request::is('dashboard') ? 'selected' : ''}}">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link {{Request::is('dashboard') ? 'active' : ''}}"
-                        href="{{route('dashboard')}}" aria-expanded="false"><i class="mdi mdi-home"></i><span
+                <li class="sidebar-item {{Request::is('bill') ? 'selected' : ''}}">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('bill.index')}}"
+                        aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
                             class="hide-menu">Dashboard</span></a>
                 </li>
-                @can('isAdmin', Model::class)
-                <li class="sidebar-item {{Request::is('admin/ticket') ? 'selected' : ''}}">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.ticket.index')}}"
-                        aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span
-                            class="hide-menu">Tiket</span></a>
+                <li class="sidebar-item {{Request::is('customer') ? 'selected' : ''}}">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('customer.index')}}"
+                        aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                            class="hide-menu">Customer</span></a>
                 </li>
-                <li class="sidebar-item {{Request::is('admin/sale') ? 'selected' : ''}}">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.sale.index')}}"
-                        aria-expanded="false"><i class="mdi mdi-cash-usd"></i><span
-                            class="hide-menu">Penjualan</span></a>
+                <li class="sidebar-item {{Request::is('package') ? 'selected' : ''}}">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('package.index')}}"
+                        aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                            class="hide-menu">Package</span></a>
                 </li>
-                <li class="sidebar-item {{Request::is('admin/community') ? 'selected' : ''}}">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="{{route('admin.community.index')}}" aria-expanded="false"><i
-                            class="mdi mdi-account"></i><span class="hide-menu">Masyarakat</span></a>
+                <li class="sidebar-item {{Request::is('bandwidth') ? 'selected' : ''}}">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('bandwidth.index')}}"
+                        aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                            class="hide-menu">Bandwidth</span></a>
                 </li>
-                @endcan
-                @can('isManager')
-                <li class="sidebar-item {{Request::is('manager/staff') ? 'selected' : ''}}">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('manager.staff.index')}}"
-                        aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Staff</span></a>
-                </li>
-                @endcan
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
@@ -88,14 +58,6 @@
     <!-- End Sidebar scroll-->
     <!-- Bottom points-->
     <div class="sidebar-footer">
-        {{--
-        <!-- item-->
-        <a href="#" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings"><i
-                class="ti-settings"></i></a>
-        <!-- item-->
-        <a href="#" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Email"><i
-                class="mdi mdi-gmail"></i></a>
-        <!-- item--> --}}
         <a href="#" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Logout"><i
                 class="mdi mdi-power"></i></a>
     </div>

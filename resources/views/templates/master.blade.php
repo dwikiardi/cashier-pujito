@@ -53,7 +53,7 @@
                 </div>
             </div>
             <footer class="footer">
-                All Rights Reserved by Materialpro admin.
+                Sistem Informasi Eksekutif Koperasi Lumbung Sedana
             </footer>
         </div>
     </div>

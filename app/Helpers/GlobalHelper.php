@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Bill;
+use App\Models\Sale;
 use App\Models\TicketSold;
 
 function convertDate($date, $printDate = false)
@@ -48,22 +50,30 @@ function convertToRupiah($jumlah)
     return 'Rp. ' . number_format($jumlah, 0, '.', '.');
 }
 
-function afterDiscount($price, $discount)
+
+function username()
 {
-    $result = $price - (($price*$discount)/100);
-    return convertToRupiah($result);
+    return auth()->user()->name;
+}
+
+function birthday($place, $date)
+{
+    return $place . ', ' . convertDate($date);
 }
 
 function saleThisMonth()
 {
     $date = date('Y-m');
-    $sold = TicketSold::with('ticket')->whereBetween('sale_date', [$date . '-01', $date . '-31'])->get();
-    $total = 0;
-    foreach($sold as $sold){
-        $total += $sold->ticket->price - ($sold->ticket->price*($sold->discount/100));
+    $bills = Bill::whereBetween('date', [$date . '-01', $date . '-31'])->get();
+    $transaction_success = 0;
+    foreach ($bills as $bill)
+    {
+        if($bill->is_paid == true) {
+            $transaction_success += $bill->customer->customer_bandwidth->package->price;
+        }
     }
 
-    return convertToRupiah($total);
+    return convertToRupiah($transaction_success);
 }
 
 function saleLastMonth()
@@ -72,65 +82,15 @@ function saleLastMonth()
     $date=date_create($datestring);
     $lastMonth = $date->format('Y-m');
 
-    $sold = TicketSold::with('ticket')->whereBetween('sale_date', [$lastMonth . '-01', $lastMonth . '-31'])->get();
-    $total = 0;
-    foreach($sold as $sold){
-        $total += $sold->ticket->price - ($sold->ticket->price*($sold->discount/100));
+    $bills = Bill::whereBetween('date', [$lastMonth . '-01', $lastMonth . '-31'])->with('customer')->get();
+    $transaction_success = 0;
+    foreach ($bills as $bill)
+    {
+        if($bill->is_paid == true) {
+            $transaction_success += $bill->customer->customer_bandwidth->package->price;
+        }
     }
 
-    return convertToRupiah($total);
-}
-
-function username()
-{
-    return auth()->user()->role->name == 'Admin' ? auth()->user()->admin->name 
-                                                : (auth()->user()->role->name == 'Manager' ? auth()->user()->manager->name : auth()->user()->community->name);
-}
-
-function globalTicketSold()
-{
-    return TicketSold::count();
-}
-
-function globalBeforeDiscount()
-{
-    $total = 0;
-    $sold = TicketSold::with('ticket')->get();
-    foreach($sold as $sold){
-        $total += $sold->ticket->price;
-    }
-    return convertToRupiah($total);
-}
-
-function globalDiscount()
-{
-    $total = 0;
-    $sold = TicketSold::with('ticket')->get();
-    foreach($sold as $sold){
-        $total += $sold->ticket->price*($sold->discount/100);
-    }
-    return convertToRupiah($total);
-}
-
-function globalNetto()
-{
-    $total = 0;
-    $sold = TicketSold::with('ticket')->get();
-    foreach($sold as $sold){
-        $total += $sold->ticket->price - ($sold->ticket->price*($sold->discount/100));
-    }
-    return convertToRupiah($total);
-}
-
-function saleByMonth($date)
-{
-
-    $sold = TicketSold::with('ticket')->whereBetween('sale_date', [$date . '-01', $date . '-31'])->get();
-    $total = 0;
-    foreach($sold as $sold){
-        $total += $sold->ticket->price - ($sold->ticket->price*($sold->discount/100));
-    }
-
-    return convertToRupiah($total);
+    return convertToRupiah($transaction_success);
 }
 ?>

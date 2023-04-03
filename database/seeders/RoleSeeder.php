@@ -15,8 +15,8 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->delete();
-        $roles = ['Admin', 'Manager', 'Community'];
+        // DB::table('roles')->delete();
+        $roles = ['Gembala', 'Sekretaris', 'Bendahara', 'Jemaat'];
         
         foreach($roles as $role){
             Role::create([

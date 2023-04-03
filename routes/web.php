@@ -1,67 +1,73 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::prefix('/')->namespace('Main')->middleware('auth')->group(function () {
-    // Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::middleware('auth')->group(function(){
     Route::get('/', function(){
-        return redirect()->route('dashboard');
+        return redirect()->route('bill.index');
     });
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    Route::get('/chart', 'DashboardController@chart')->name('chart');
-    Route::post('/chart', 'DashboardController@renderChart')->name('render.chart');
-    Route::post('/export', 'DashboardController@export')->name('export');
+    Route::prefix('/member')->name('member.')->group(function () {
+        Route::get('/', 'MemberController@index')->name('index');
+        Route::get('/render', 'MemberController@render')->name('render');
+        Route::post('/store', 'MemberController@store')->name('store');
+        Route::get('/edit/{id}', 'MemberController@edit')->name('edit');
+        Route::post('/update', 'MemberController@update')->name('update');
+        Route::post('/update-status', 'MemberController@updateStatus')->name('updateStatus');
+        Route::post('/delete', 'MemberController@delete')->name('delete');
+    });
+
+    Route::prefix('/profile')->name('profile.')->group(function () {
+        Route::get('/', 'ProfileController@index')->name('index');
+        Route::get('/render-profile', 'ProfileController@renderProfile')->name('renderProfile');
+        Route::get('/render-password', 'ProfileController@renderPassword')->name('renderPassword');
+        Route::post('/update', 'ProfileController@update')->name('update');
+        Route::post('/updatePassword', 'ProfileController@updatePassword')->name('updatePassword');
+    });
+
+    Route::prefix('/customer')->name('customer.')->group(function () {
+        Route::get('/', 'CustomerController@index')->name('index');
+        Route::get('/render', 'CustomerController@render')->name('render');
+        Route::post('/store', 'CustomerController@store')->name('store');
+        Route::get('/edit/{id}', 'CustomerController@edit')->name('edit');
+        Route::post('/update', 'CustomerController@update')->name('update');
+        Route::post('/update-status', 'CustomerController@updateStatus')->name('updateStatus');
+        Route::post('/delete', 'CustomerController@delete')->name('delete');
+    });
+
+    Route::prefix('/bandwidth')->name('bandwidth.')->group(function () {
+        Route::get('/', 'CustomerBandwidthController@index')->name('index');
+        Route::get('/render', 'CustomerBandwidthController@render')->name('render');
+        Route::post('/store', 'CustomerBandwidthController@store')->name('store');
+        Route::get('/edit/{id}', 'CustomerBandwidthController@edit')->name('edit');
+        Route::post('/update', 'CustomerBandwidthController@update')->name('update');
+        Route::post('/delete', 'CustomerBandwidthController@delete')->name('delete');
+    });
+
+    Route::prefix('/package')->name('package.')->group(function () {
+        Route::get('/', 'PackageController@index')->name('index');
+        Route::get('/render', 'PackageController@render')->name('render');
+        Route::post('/store', 'PackageController@store')->name('store');
+        Route::get('/edit/{id}', 'PackageController@edit')->name('edit');
+        Route::post('/update', 'PackageController@update')->name('update');
+        Route::post('/delete', 'PackageController@delete')->name('delete');
+    });
+
+    Route::prefix('/bill')->name('bill.')->group(function () {
+        Route::get('/', 'BillController@index')->name('index');
+        Route::get('/render/{month}/{year}', 'BillController@render')->name('render');
+        Route::get('/additional/{month}/{year}', 'BillController@additional')->name('additional');
+        Route::post('/store', 'BillController@store')->name('store');
+        Route::post('/validate', 'BillController@validateBill')->name('validate');
+        Route::post('/print', 'BillController@print')->name('print');
+    });
 });
-Route::prefix('/admin')->middleware('auth')->namespace('Admin')->name('admin.')->group(function(){
-    Route::prefix('/ticket')->name('ticket.')->group(function () {
-        Route::get('/', 'TicketController@index')->name('index');
-        Route::get('/render', 'TicketController@render')->name('render');
-        Route::post('/store', 'TicketController@store')->name('store');
-        Route::get('/edit/{id}', 'TicketController@edit')->name('edit');
-        Route::post('/update', 'TicketController@update')->name('update');
-        Route::post('/delete', 'TicketController@delete')->name('delete');
-    });
 
-    Route::prefix('/community')->name('community.')->group(function () {
-        Route::get('/', 'CommunityController@index')->name('index');
-        Route::get('/render', 'CommunityController@render')->name('render');
-        Route::post('/change-status', 'CommunityController@changeStatus')->name('change.status');
-    });
-
-    Route::prefix('/sale')->name('sale.')->group(function () {
-        Route::get('/', 'SaleController@index')->name('index');
-        Route::get('/render', 'SaleController@render')->name('render');
-        Route::post('/store', 'SaleController@store')->name('store');
-        Route::get('/edit/{id}', 'SaleController@edit')->name('edit');
-        Route::post('/update', 'SaleController@update')->name('update');
-        Route::post('/delete', 'SaleController@delete')->name('delete');
-
-        Route::get('/ticketPrice/{id}', 'SaleController@ticketPrice')->name('ticket.price');
-    });
-});
-
-// MANAGER
-Route::prefix('/manager')->middleware('auth')->namespace('Manager')->name('manager.')->group(function(){
-    Route::prefix('/staff')->name('staff.')->group(function () {
-        Route::get('/', 'StaffController@index')->name('index');
-        Route::get('/render', 'StaffController@render')->name('render');
-        Route::post('/store', 'StaffController@store')->name('store');
-        Route::get('/edit/{id}', 'StaffController@edit')->name('edit');
-        Route::post('/update', 'StaffController@update')->name('update');
-        Route::post('/delete', 'StaffController@delete')->name('delete');
-        Route::post('/change-status', 'StaffController@changeStatus')->name('change.status');
-    });
-});
-
-// COMMUNITY
-Route::prefix('/community')->middleware('guest')->namespace('Community')->name('community.')->group(function(){
-    Route::post('/register', 'CommunityController@register')->name('register');
-});
-
+    
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

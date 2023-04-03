@@ -10,10 +10,10 @@
         content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, material pro admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template" />
     <meta name="description" content="Material Pro is powerful and clean admin dashboard template" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Sistem Informasi Eksekutif Desa Ceking</title>
+    <title>IT Eka Solution</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/uploads/media/logo/logo_desa.png')}}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/uploads/media/logo/pujito.jpg')}}" />
     <!-- Custom CSS -->
     <link href="{{asset('assets/templates/auth/css/style.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
@@ -30,16 +30,18 @@
                     <div class="row justify-content-center text-center">
                         <div class="col-md-7 col-lg-12 col-xl-9">
                             <div>
-                                <span class="db"><img
+                                <span class="db"><img src="{{asset('assets/uploads/media/logo/pujito.jpg')}}"
+                                        width="100" alt="logo" /></span>
+                                {{-- <span class="db"><img
                                         src="{{asset('assets/templates/auth/images/logo-light-icon.png')}}"
-                                        alt="logo" /></span>
-                                <span class="db"><img
+                                        alt="logo" /></span> --}}
+                                {{-- <span class="db"><img
                                         src="{{asset('assets/templates/auth/images/logo-light-text.png')}}"
-                                        alt="logo" /></span>
+                                        alt="logo" /></span> --}}
                             </div>
                             <h2 class="text-white mt-4 fw-light">
-                                SIE
-                                <span class="font-weight-medium">Desa Ceking Tegallalang</span> Berbasis Web
+                                SI Invoice
+                                <span class="font-weight-medium">IT Eka Solution</span>
                             </h2>
                             <p class="op-5 text-white fs-4 mt-4">
                                 {{-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -51,62 +53,112 @@
             </div>
             <div class="col-lg-8 col-xl-9 d-flex align-items-center justify-content-center">
                 <div class="row justify-content-center w-100 mt-4 mt-lg-0">
-                    <div class="col-lg-6 col-xl-5 col-md-7">
+                    <div class="col-lg-6 col-xl-7 col-md-7">
                         <div class="card" id="registerform">
                             <div class="card-body">
                                 <h2>Sign Up Form</h2>
                                 <p class="text-muted fs-4">
-                                    Enter given details for new account
+                                    Hanya Kepala Keluarga yang Dapat Mendaftar
                                 </p>
                                 <form class="form-horizontal mt-4 pt-4" id="formRegister">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control form-input-bg" id="name"
-                                            placeholder="john deo" name="name" />
-                                        <label for="name">Full Name</label>
-                                        <div class="invalid-feedback error-name"></div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <select name="gender" id="gender" class="form-control form-input-bg">
-                                            <option value="1">Laki - Laki</option>
-                                            <option value="0">Perempuan</option>
-                                        </select>
-                                        <label for="gender">Jenis Kelamin</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control form-input-bg" id="phone"
-                                            placeholder="08xxxxxxx" name="phone" />
-                                        <label for="phone">No. Telp</label>
-                                        <div class="invalid-feedback error-phone"></div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea name="address" id="address" class="form-control form-input-bg"
-                                            rows="3"></textarea>
-                                        <label for="address">Alamat</label>
-                                        <div class="invalid-feedback error-address"></div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="file" class="form-control form-input-bg" id="image" name="image" />
-                                        <label for="image">Foto</label>
-                                        <div class="invalid-feedback error-image"></div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control form-input-bg" id="email"
-                                            placeholder="john@gmail.com" name="email" />
-                                        <label for="tb-remail">Email</label>
-                                        <div class="invalid-feedback error-email"></div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control form-input-bg" id="password"
-                                            placeholder="*****" name="password" />
-                                        <label for="text-rpassword">Password</label>
-                                        <div class="invalid-feedback error-password"></div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control form-input-bg"
-                                            id="passwordConfirmation" placeholder="*****"
-                                            name="password_confirmation" />
-                                        <label for="text-rcpassword">Confirm Password</label>
-                                        <div class="invalid-feedback error-password-confirmation"></div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="noKK"
+                                                    placeholder="51060xxxxxxxxxxxxxx" name="no_kk" />
+                                                <label for="noKK">No. KK</label>
+                                                <div class="invalid-feedback error-no-kk"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="nik"
+                                                    placeholder="51060xxxxxxxxxxxxxx" name="nik" />
+                                                <label for="nik">NIK</label>
+                                                <div class="invalid-feedback error-nik"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="nama"
+                                                    placeholder="john deo" name="nama" />
+                                                <label for="nama">Nama Lengkap</label>
+                                                <div class="invalid-feedback error-nama"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="tempatLahir"
+                                                    placeholder="john deo" name="tempat_lahir" />
+                                                <label for="tempatLahir">Tempat Lahir</label>
+                                                <div class="invalid-feedback error-tempat-lahir"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="date" class="form-control form-input-bg" id="tanggalLahir"
+                                                    name="tanggal_lahir" />
+                                                <label for="tanggalLahir">Tanggal Lahir</label>
+                                                <div class="invalid-feedback error-tanggal-lahir"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select name="jenis_kelamin" id="jenisKelamin"
+                                                    class="form-control form-input-bg">
+                                                    <option value="1">Laki - Laki</option>
+                                                    <option value="0">Perempuan</option>
+                                                </select>
+                                                <label for="jenisKelamin">Jenis Kelamin</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="telp"
+                                                    placeholder="08xxxxxxx" name="telp" />
+                                                <label for="telp">No. Telp</label>
+                                                <div class="invalid-feedback error-telp"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <textarea name="alamat" id="alamat" class="form-control form-input-bg"
+                                                    rows="3"></textarea>
+                                                <label for="alamat">Alamat</label>
+                                                <div class="invalid-feedback error-alamat"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="pekerjaan"
+                                                    placeholder="wiraswasta" name="pekerjaan" />
+                                                <label for="pekerjaan">Pekerjaan</label>
+                                                <div class="invalid-feedback error-pekerjaan"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="namaAyah"
+                                                    placeholder="steven" name="nama_ayah" />
+                                                <label for="namaAyah">Nama Ayah</label>
+                                                <div class="invalid-feedback error-nama-ayah"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-input-bg" id="namaIbu"
+                                                    placeholder="merry" name="nama_ibu" />
+                                                <label for="namaIbu">Nama Ibu</label>
+                                                <div class="invalid-feedback error-nama-ibu"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="file" class="form-control form-input-bg" id="foto"
+                                                    name="foto" />
+                                                <label for="foto">Foto</label>
+                                                <div class="invalid-feedback error-foto"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="email" class="form-control form-input-bg" id="email"
+                                                    placeholder="john@gmail.com" name="email" />
+                                                <label for="tb-remail">Email</label>
+                                                <div class="invalid-feedback error-email"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control form-input-bg" id="password"
+                                                    placeholder="*****" name="password" />
+                                                <label for="text-rpassword">Password</label>
+                                                <div class="invalid-feedback error-password"></div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control form-input-bg"
+                                                    id="passwordConfirmation" placeholder="*****"
+                                                    name="password_confirmation" />
+                                                <label for="text-rcpassword">Confirm Password</label>
+                                                <div class="invalid-feedback error-password-confirmation"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-stretch button-group">
                                         <button type="button" class="btn btn-info btn-lg px-4 btn-register">
@@ -120,7 +172,7 @@
                         </div>
                         <div class="card" id="loginform">
                             <div class="card-body">
-                                <h2>Welcome to SIE Desa Ceking</h2>
+                                <h2>Login</h2>
                                 <p class="text-muted fs-4">
                                     New Here?
                                     <a href="javascript:void(0)" id="to-register">Create an account</a>
@@ -213,7 +265,7 @@
             let data = new FormData(form)
             $.ajax({
                 type: "POST",
-                url: "community/register",
+                url: "jemaat/register",
                 data: data,
                 processData: false,
                 contentType: false,
@@ -235,29 +287,85 @@
                 error: function (error) {
                     if (error.status == 422) {
                         if (error.responseJSON.errors) {
-                            if (error.responseJSON.errors.name) {
-                                $('#name').addClass('is-invalid')
-                                $('#name').trigger('focus')
-                                $('.error-name').html(error.responseJSON.errors.name)
+                            if (error.responseJSON.errors.nama) {
+                                $('#nama').addClass('is-invalid')
+                                $('#nama').trigger('focus')
+                                $('.error-nama').html(error.responseJSON.errors.nama)
                             } else {
-                                $('#name').removeClass('is-invalid')
-                                $('.error-name').html('')
+                                $('#nama').removeClass('is-invalid')
+                                $('.error-nama').html('')
                             }
-                            if (error.responseJSON.errors.phone) {
-                                $('#phone').addClass('is-invalid')
-                                $('#phone').trigger('focus')
-                                $('.error-phone').html(error.responseJSON.errors.phone)
+                            if (error.responseJSON.errors.nik) {
+                                $('#nik').addClass('is-invalid')
+                                $('#nik').trigger('focus')
+                                $('.error-nik').html(error.responseJSON.errors.nik)
                             } else {
-                                $('#phone').removeClass('is-invalid')
-                                $('.error-phone').html('')
+                                $('#nik').removeClass('is-invalid')
+                                $('.error-nik').html('')
                             }
-                            if (error.responseJSON.errors.address) {
-                                $('#address').addClass('is-invalid')
-                                $('#address').trigger('focus')
-                                $('.error-address').html(error.responseJSON.errors.address)
+                            if (error.responseJSON.errors.no_kk) {
+                                $('#noKK').addClass('is-invalid')
+                                $('#noKK').trigger('focus')
+                                $('.error-no-kk').html(error.responseJSON.errors.no_kk)
                             } else {
-                                $('#address').removeClass('is-invalid')
-                                $('.error-address').html('')
+                                $('#noKK').removeClass('is-invalid')
+                                $('.error-no-kk').html('')
+                            }
+                            if (error.responseJSON.errors.tempat_lahir) {
+                                $('#tempatLahir').addClass('is-invalid')
+                                $('#tempatLahir').trigger('focus')
+                                $('.error-tempat-lahir').html(error.responseJSON.errors.tempat_lahir)
+                            } else {
+                                $('#tempatLahir').removeClass('is-invalid')
+                                $('.error-tempat-lahir').html('')
+                            }
+                            if (error.responseJSON.errors.tanggal_lahir) {
+                                $('#tanggalLahir').addClass('is-invalid')
+                                $('#tanggalLahir').trigger('focus')
+                                $('.error-tanggal-lahir').html(error.responseJSON.errors.tanggal_lahir)
+                            } else {
+                                $('#tanggalLahir').removeClass('is-invalid')
+                                $('.error-tanggal-lahir').html('')
+                            }
+                            if (error.responseJSON.errors.pekerjaan) {
+                                $('#pekerjaan').addClass('is-invalid')
+                                $('#pekerjaan').trigger('focus')
+                                $('.error-pekerjaan').html(error.responseJSON.errors.pekerjaan)
+                            } else {
+                                $('#pekerjaan').removeClass('is-invalid')
+                                $('.error-pekerjaan').html('')
+                            }
+                            if (error.responseJSON.errors.nama_ayah) {
+                                $('#namaAyah').addClass('is-invalid')
+                                $('#namaAyah').trigger('focus')
+                                $('.error-nama-ayah').html(error.responseJSON.errors.nama_ayah)
+                            } else {
+                                $('#namaAyah').removeClass('is-invalid')
+                                $('.error-nama-ayah').html('')
+                            }
+                            if (error.responseJSON.errors.nama_ibu) {
+                                $('#namaIbu').addClass('is-invalid')
+                                $('#namaIbu').trigger('focus')
+                                $('.error-nama-ibu').html(error.responseJSON.errors.nama_ibu)
+                            } else {
+                                $('#namaIbu').removeClass('is-invalid')
+                                $('.error-nama-ibu').html('')
+                            }
+                            if (error.responseJSON.errors.telp) {
+                                $('#telp').addClass('is-invalid')
+                                $('#telp').trigger('focus')
+                                $('.error-telp').html(error.responseJSON.errors.telp)
+                            } else {
+                                $('#telp').removeClass('is-invalid')
+                                $('.error-telp').html('')
+                            }
+                            if (error.responseJSON.errors.alamat) {
+                                $('#alamat').addClass('is-invalid')
+                                $('#alamat').trigger('focus')
+                                $('.error-alamat').html(error.responseJSON.errors.alamat)
+                            } else {
+                                $('#alamat').removeClass('is-invalid')
+                                $('.error-alamat').html('')
                             }
                             if (error.responseJSON.errors.email) {
                                 $('#email').addClass('is-invalid')
@@ -283,13 +391,13 @@
                                 $('#passwordConfirmation').removeClass('is-invalid')
                                 $('.error-password-confirmation').html('')
                             }
-                            if (error.responseJSON.errors.image) {
-                                $('#image').addClass('is-invalid')
-                                $('#image').trigger('focus')
-                                $('.error-image').html(error.responseJSON.errors.image)
+                            if (error.responseJSON.errors.foto) {
+                                $('#foto').addClass('is-invalid')
+                                $('#foto').trigger('focus')
+                                $('.error-foto').html(error.responseJSON.errors.foto)
                             } else {
-                                $('#image').removeClass('is-invalid')
-                                $('.error-image').html('')
+                                $('#foto').removeClass('is-invalid')
+                                $('.error-foto').html('')
                             }
                         }
                     }
