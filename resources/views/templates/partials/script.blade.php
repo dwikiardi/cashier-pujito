@@ -1,9 +1,9 @@
 <script
-    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/libs/jquery/dist/jquery.min.js">
+    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/dist/libs/jquery/dist/jquery.min.js">
 </script>
 <!-- Bootstrap tether Core JavaScript -->
 <script
-    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js">
+    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js">
 </script>
 <!-- apps -->
 <script
@@ -17,10 +17,10 @@
 </script>
 <!-- slimscrollbar scrollbar JavaScript -->
 <script
-    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js">
+    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/dist/libs/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.js">
 </script>
 <script
-    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/extra-libs/sparkline/sparkline.js">
+    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/dist/libs/jquery-sparkline/jquery.sparkline.min.js">
 </script>
 <!--Wave Effects -->
 <script
@@ -39,7 +39,7 @@
 </script>
 <!--This page JavaScript -->
 <script
-    src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/libs/apexcharts/dist/apexcharts.min.js">
+    src="{{asset('assets/templates/apexchart/apexcharts.min.js')}}">
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
