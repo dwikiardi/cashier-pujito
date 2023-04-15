@@ -23,7 +23,8 @@ class BillController extends Controller
     public function render($month, $year)
     {
         $date = $year.'-'.$month;
-        $bills = Bill::whereBetween('date', [$date.'-01', $date.'-31'])->with('customer.customer_bandwidth.package')->get();
+        $lastDay = date('t', strtotime('last day of'. $month));
+        $bills = Bill::whereBetween('date', [$date.'-01', $date.'-'.$lastDay])->with('customer.customer_bandwidth.package')->get();
         $view = [
             'data' => view('bills.render', compact('bills'))->render()
         ];
@@ -61,7 +62,7 @@ class BillController extends Controller
                 $year = $request->year;
                 // $date = $year.'-'.$month.'-'.date('d');
                 $date = $year.'-'.$month.'-'.'01';
-                
+
                 // get all customer data
                 $customers = Customer::all();
                 $customerID = [];
@@ -123,13 +124,20 @@ class BillController extends Controller
     public function print(Request $request)
     {
         $date = convertDate(date('Y-m-d'), true);
-
         $bill = Bill::with('customer')->where('id', $request->id)->first();
-
         $view = [
             'data' => view('bills.print.index', compact('bill', 'date'))->render()
         ];
+        return response()->json($view);
+    }
 
+    public function printAll(Request $request)
+    {
+        $date = convertDate(date('Y-m-d'), true);
+        $bill = Bill::with('customer')->whereIn('id', $request->bill_id)->get();
+        $view = [
+            'data' => view('bills.print.print-all', compact('bill', 'date'))->render()
+        ];
         return response()->json($view);
     }
 

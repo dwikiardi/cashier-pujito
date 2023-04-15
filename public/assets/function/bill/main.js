@@ -29,7 +29,7 @@ function getAdditional(month, year) {
 }
 
 $(document).ready(function () {
-    
+
     let date = new Date();
     let month = date.getMonth()+1;
     let year = date.getFullYear();
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $("body").on("change", '#month, #year', function (e) {
         let month = $('select[name=month]').find('option:selected').val();
         let year = $('select[name=year]').find('option:selected').val();
-        
+
         getBill(month, year)
         getAdditional(month, year);
     });
@@ -141,13 +141,60 @@ $(document).ready(function () {
 
     function convertDateDBtoIndo(string) {
         bulanIndo = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September' , 'Oktober', 'November', 'Desember'];
-    
+
         tanggal = string.split("-")[2];
         bulan = string.split("-")[1];
         tahun = string.split("-")[0];
-    
+
         return tanggal + " " + bulanIndo[Math.abs(bulan)] + " " + tahun;
     }
+
+    $('body').on('click', '.btn-printAll', function(){
+        let bill_id = [];
+        let date = $(this).data('date');
+
+        $.each($("#printThisCheckBox:checked"), function(){
+            let id = $(this).data('id');
+            // let name = $(this).data('name');
+            bill_id.push(id);
+          });
+
+          var mode = "iframe"; //popup
+          var close = mode == "popup";
+          var options = {
+              mode: mode,
+              popClose: close,
+              popTitle: 'IT Eka Solution'
+          };
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+          $.ajax({
+                type: "POST",
+                url: "bill/print-all",
+                data: {
+                    bill_id: bill_id,
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $.LoadingOverlay("show", {
+                        image       : "",
+                        text        : "Loading..."
+                    });
+                },
+                complete: function () {
+                    $.LoadingOverlay("hide");
+                },
+                success: function (response) {
+                $.each(bill_id, function (i, val) {
+                    document.title= 'Invoice - ' + val.name + '-' + val.date
+                    $(response.data).find("div.printableArea").printArea(options);
+                    })
+                }
+          });
+    })
 
     // print
     $('body').on('click', '.btn-print', function(){
@@ -160,7 +207,7 @@ $(document).ready(function () {
         var options = {
             mode: mode,
             popClose: close,
-            popTitle: 'Sistem Informasi Eksekutif Koperasi Lumbung Sedana'
+            popTitle: 'IT Eka Solution'
         };
         $.ajaxSetup({
             headers: {

@@ -6,7 +6,7 @@
             style="background: url(https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/images/background/user-info.jpg)no-repeat;">
             <!-- User profile image -->
             <div class="profile-img">
-                <img src="{{asset(auth()->user()->image)}}" alt="user" class="w-100" />
+                <img src="{{asset('assets/uploads/media/users/blank.png')}}" alt="user" class="w-100" />
             </div>
             <!-- User profile text-->
             <div class="profile-text pt-1 dropdown">

@@ -64,10 +64,11 @@ Route::middleware('auth')->group(function(){
         Route::post('/store', 'BillController@store')->name('store');
         Route::post('/validate', 'BillController@validateBill')->name('validate');
         Route::post('/print', 'BillController@print')->name('print');
+        Route::post('/print-all', 'BillController@printAll')->name('print.all');
     });
 });
 
-    
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

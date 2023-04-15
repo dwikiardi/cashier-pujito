@@ -20,11 +20,11 @@
                 </div>
             </div>
             <div class="earnings-month mt-1 text-center" style="min-height: 75px;">
-                <img src="{{asset(auth()->user()->image)}}" class="rounded-3 img-fluid" width="90">
+                <img src="{{asset('assets/uploads/media/users/blank.png')}}" class="rounded-3 img-fluid" width="90">
                 <div class="mt-n2 border-bottom">
                     {{-- <span class="badge bg-danger">{{auth()->user()->}}</span> --}}
                     <h3 class="card-title mt-3">{{username()}}</h3>
-                    <h6 class="card-subtitle">Sistem Informasi Eksekutif Lumbung Sedana</h6>
+                    <h6 class="card-subtitle">IT Eka Solution</h6>
                 </div>
             </div>
             <div class="card-body">
@@ -93,15 +93,25 @@
             </div>
         </div>
     </div>
-
     <div class="col-lg-8 d-flex align-items-stretch">
         <div class="card w-100">
-            <div class="d-flex card-header">
-                Data Pembayaran
-            </div>
-            <div class="card-body table-render" style="position: relative;">
-                {{-- cart --}}
-            </div>
+            <div class="d-flex card-header align-items-center px-3">
+                <div class="flex-grow-1">
+                  <h4 class="card-title">Data Pembayaran</h4>
+                </div>
+                <div class="px-3">
+                    <button class="ms-auto btn btn-sm btn-success btn-printAll" id="#printAll">
+                        Print all
+                    </button>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" id="checkAll" class="form-check-input" name="inputCheckboxesRecieve[]">
+                    <label for="inputRecieve" class="form-check-label font-weight-medium">
+                      <span>Check All</span>
+                    </label>
+                </div>
+              </div>
+            <div class="card-body table-render" style="position: relative;"></div>
         </div>
     </div>
 </div>
@@ -112,4 +122,5 @@
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{asset('assets/function/bill/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 @endsection

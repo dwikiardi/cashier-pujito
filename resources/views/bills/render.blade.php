@@ -18,6 +18,7 @@
         <th>Pembayaran Bulan</th>
         <th>Bandwidth</th>
         <th>Harga</th>
+        <th>Print</th>
         <th></th>
     </thead>
     <tbody>
@@ -31,6 +32,12 @@
             <td>
                 Rp.
                 {{number_format($bill->customer->customer_bandwidth->package->price,0,'.','.')}}
+            </td>
+            <td class="text-center">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" id="printThisCheckBox" class="form-check-input" name="printThisCheckBox[]" data-id="{{$bill->id}}"
+                    data-name="{{$bill->customer->name}}" data-date="{{$bill->date}}">
+                </div>
             </td>
             <td class="text-center">
                 @can('unpaid', $bill)
@@ -58,6 +65,9 @@
                 search: "_INPUT_",
                 searchPlaceholder: "Search records",
             }
+        });
+        $("#checkAll").click(function(){
+            $('input:checkbox').not(this).prop('checked', this.checked);
         });
     });
 </script>

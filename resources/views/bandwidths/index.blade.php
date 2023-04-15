@@ -10,7 +10,7 @@
 {{--
 <link rel="stylesheet" href="{{asset('assets/templates/css/select2.css')}}"> --}}
 <link rel="stylesheet"
-    href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/materialpro-bootstrap/package/assets/libs/select2/dist/css/select2.min.css">
+    href="{{asset('assets/templates/css/style.min.css')}}">
 @endsection
 
 @section('content')
